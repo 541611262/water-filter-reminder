@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滤芯更换提醒系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>滤芯更换提醒系统</h1>
+        
+        <div class="input-section">
+            <h2>添加新客户</h2>
+            <div class="form-group">
+                <label for="customerName">客户名称:</label>
+                <input type="text" id="customerName" required>
+            </div>
+            <div class="form-group">
+                <label for="machinePurchaseDate">饮水机购买日期:</label>
+                <input type="date" id="machinePurchaseDate" required>
+            </div>
+            <div class="form-group">
+                <label for="filterPurchaseDate">滤芯购买日期:</label>
+                <input type="date" id="filterPurchaseDate" required>
+            </div>
+            <button id="addCustomer">添加客户</button>
+            
+            <div class="import-section">
+                <h3>批量导入/导出客户数据</h3>
+                <p>支持CSV格式，列名必须包含：客户名称,饮水机购买日期,滤芯购买日期</p>
+                <p>日期格式支持：YYYY-MM-DD, YYYY/MM/DD, MM/DD/YYYY</p>
+                <p>示例文件：<a href="#" id="downloadSample">下载示例CSV</a></p>
+                <input type="file" id="csvFile" accept=".csv">
+                <div>
+                    <button id="importBtn">导入数据</button>
+                    <button id="exportBtn">导出数据</button>
+                </div>
+                <div id="importStatus"></div>
+            </div>
+        </div>
+
+        <div class="reminder-section">
+            <h2>客户管理</h2>
+            <div class="controls">
+                <label>
+                    <input type="checkbox" id="showAll"> 显示所有客户
+                </label>
+            </div>
+            <div id="reminderList"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
